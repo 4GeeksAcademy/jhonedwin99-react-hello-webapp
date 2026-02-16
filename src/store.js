@@ -25,18 +25,10 @@ console.log("delete_contact INSIDE STORE indexToDelete:" + indexToDelete)
       };
       case 'load_contacts':
 
-    
-
-
       return {
         ...store,
         contacts: action.payload
       };
-
-
-
-
-
 
     default:
       throw Error('Unknown action.');

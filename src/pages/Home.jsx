@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import { Link } from "react-router-dom";
 
@@ -11,7 +10,6 @@ export const Home = () => {
 		fetch('https://playground.4geeks.com/contact/agendas/jhonedwin99')
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data.contacts)
 				dispatch({
 					type: 'load_contacts',
 					payload: data.contacts
@@ -20,12 +18,10 @@ export const Home = () => {
 	}
 
 	useEffect(() => {
-		console.log("se cargo el componente")
 		getcontactList();
 	}, []);
 
 	function deleteContact(idToDelete) {
-		console.log("deleteContact" + idToDelete)
 
 		const requestOptions = {
 			method: "DELETE"
@@ -33,7 +29,6 @@ export const Home = () => {
 
 		fetch(`https://playground.4geeks.com/contact/agendas/jhonedwin99/contacts/${idToDelete}`, requestOptions)
 			.then((data) => {
-				console.log(data)
 				getcontactList();
 			});
 	}
@@ -42,7 +37,6 @@ export const Home = () => {
 		<div className="container mt-5">
 
 			<ul className="list-group">
-				{/* Map over the 'todos' array from the store and render each item as a list element */}
 				{store && store.contacts?.map((item) => {
 					return (
 						<li

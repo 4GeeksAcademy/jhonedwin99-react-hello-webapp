@@ -60,7 +60,6 @@ useEffect(() => {
             });
     }
 
-
     return (
         <div className="container mt-5">
             <h1 className="text-center mb-4">Add a new contact</h1>
